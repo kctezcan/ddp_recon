@@ -1,7 +1,7 @@
 # K.Tezcan, C. Baumgartner, R. Luechinger, K. Pruessmann, E. Konukoglu
-# code for reproducing "MR image reconstruction using deep density priors"
-# IEEE TMI, 2018
-# tezcan@vision.ee.ethz.ch, CVL ETH Zürich
+## code for reproducing "MR image reconstruction using deep density priors"
+## IEEE TMI, 2018
+## tezcan@vision.ee.ethz.ch, CVL ETH Zürich
 
 
 Some explanation since the code can be confusing.
