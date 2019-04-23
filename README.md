@@ -19,6 +19,7 @@ Some explanation since the code can be confusing.
 Note: The model is trained on 790 central slices with 1 mm in-slice resolution (158 subjects) from the HCP dataset.
 
 ### Versions:
+-------------------------
 Python 3.6.3 |Anaconda custom (64-bit)| (default, Oct  6 2017, 17:14:46)
 Tensorflow '1.9.0'
 -------------------------
