@@ -6,7 +6,7 @@
 import numpy as np
 import os
 import pickle
-import vaerecon5
+import vaerecon
 
 from US_pattern import US_pattern
 
@@ -87,7 +87,7 @@ except:
 
 # undersample the image and get the zerofilled image
 #-----------------------------------------------------
-usksp = UFT(orim,uspat)/np.percentile( np.abs(tUFT(UFT(orim,uspat),uspat).flatten())  ,99)
+usksp = UFT(orim,uspat)/np.percentile( np.abs(tUFT(UFT(orim,uspat),uspat).flatten())  ,99) #notice the usksp has zeros at positions which are not sampled.
 zerofilled = tUFT(usksp, uspat)
 
 # reconstruction parameters
@@ -107,7 +107,7 @@ parfact = 25 # a factor for parallel computing for speeding up computations,
 #i.e. doing operations in parallel for the patches, but upper bounded by memory 
 
 # run the recon!
-rec_ddp = vaerecon5.vaerecon(usksp, sensmaps=sensmaps, dcprojiter=dcprojiter, lat_dim=lat_dim, patchsize=ndims ,parfact=parfact, num_iter=num_iter, regiter=regiter, reglmb=reg, regtype=regtype)
+rec_ddp = vaerecon.vaerecon(usksp, sensmaps=sensmaps, dcprojiter=dcprojiter, lat_dim=lat_dim, patchsize=ndims ,parfact=parfact, num_iter=num_iter, regiter=regiter, reglmb=reg, regtype=regtype)
 pickle.dump(rec_ddp, open('./rec' ,'wb')   )
 pickle.dump(np.abs(tFT(usksp)), open('./zerofilled' ,'wb')   )
                

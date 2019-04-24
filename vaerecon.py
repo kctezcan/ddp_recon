@@ -8,7 +8,7 @@ from __future__ import print_function
 import numpy as np
 
 from Patcher import Patcher
-from definevae2 import definevae2
+from definevae import definevae
 
 import scipy.io
 
@@ -39,7 +39,7 @@ def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsiz
      
      #make a network and a patcher to use later
      #==============================================================================
-     x_rec, x_inp, funop, grd0, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = definevae2(lat_dim=lat_dim, patchsize=patchsize, batchsize=parfact*nsampl)
+     x_rec, x_inp, funop, grd0, _, _, _, _, _, _, _, _, _, _, _, _, _, _ = definevae(lat_dim=lat_dim, patchsize=patchsize, batchsize=parfact*nsampl)
 
      Ptchr=Patcher(imsize=[imsizer,imrizec],patchsize=patchsize,step=int(patchsize/2), nopartials=True, contatedges=True)   
      nopatches=len(Ptchr.genpatchsizes)

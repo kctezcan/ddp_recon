@@ -5,7 +5,7 @@
 
 
 
-def definevae2(lat_dim=60, patchsize=28,batchsize=50):
+def definevae(lat_dim=60, patchsize=28,batchsize=50):
  
      import tensorflow as tf
      config=tf.ConfigProto()
