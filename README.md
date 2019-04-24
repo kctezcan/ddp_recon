@@ -5,7 +5,7 @@
 
 Files:
 
-1. runrecon.py: The file that prepares and runs the reconstruction. This loads the image, creates the undersampled version and calls the reconstruction function: vaerecon5.py. After the reconstruction the reconstructed and the zero-filled images are saved as pickle files: 'rec' and 'zerofilled'.
+1. runrecon.py: The file that prepares and runs the reconstruction. This loads the image, creates the undersampled version and calls the reconstruction function: vaerecon5.py. After the reconstruction the reconstructed and the zero-filled images are saved as pickle files: 'rec' and 'zerofilled'. 'rec' contains the images throughout the iterations, so can be used to calculate step-wise RMSE to verify convergence.
 
 2. vaerecon5.py: The main recon function. It contains the necessary functions for the recon, such as the multi-coil Fourier transforms, data projections, prior projections, phase projections etc... Also implements the POCS optimization scheme. The prior projection is the part that uses the VAE. The VAE is also called as a function here: definevae2.py. This function returns the necessary operation and gradients to do the prior projection.
 
