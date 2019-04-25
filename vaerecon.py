@@ -328,7 +328,7 @@ def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsiz
                 ftot, f_prior, f_dc = feval(recs[:,it])
                 gtot, g_prior, g_dc = geval(recs[:,it])
                
-                print("it no: " + str(it) + " f_tot= " + str(ftot) + " f_prior= " + str(f_prior) + " f_dc (1e6)= " + str(f_dc/1e6) + " |g_prior|= " + str(np.linalg.norm(g_prior)) + " |g_dc|= " + str(np.linalg.norm(g_dc)) )
+                print("it no: " + str(it) + " f_tot= " + str(ftot) + " f_prior= " + str(-f_prior) + " f_dc (x1e6)= " + str(f_dc/1e6) + " |g_prior|= " + str(np.linalg.norm(g_prior)) + " |g_dc|= " + str(np.linalg.norm(g_dc)) )
                
                 # update the image with the prior gradient
                 recs[:,it+1] = recs[:,it] - alpha*g_prior
@@ -348,14 +348,15 @@ def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsiz
                      elif regtype=='reg2':
                           tmpptv=reg2_proj(tmpp, alpha=reglmb,niter=regiter).flatten() #0.1, 15
                      else:
-                          print("mistake!!!!!!!!!!")
                           raise(TypeError)
                 
                 # combine back the phase and the magnitude
                 recs[:,it+1] = tmpaf*np.exp(1j*tmpptv)
                    
           else:   # the case where you do only data consistency iterations (also iteration 0)
-               print('KCT-info: skipping prior proj for the first onlydciters iter.s, doing only phase proj (then maybe DC proj as well) !!!')
+               if not it==0:
+                    print('KCT-info: skipping prior proj for the first onlydciters iter.s, doing only phase proj (then maybe DC proj as well) !!!')
+                    
                recs[:,it+1]=recs[:,it].copy()
                
                # seperate the magnitude from the phase and do the phase projection
@@ -373,7 +374,6 @@ def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsiz
                     elif regtype=='reg2':
                           tmpptv=reg2_proj(tmpp, alpha=reglmb,niter=regiter).flatten() #0.1, 15
                     else:
-                          print("hey mistake!!!!!!!!!!")
                           raise(TypeError)
                           
                # combine back the phase and the magnitude
@@ -392,7 +392,6 @@ def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsiz
                
 
                ftot, f_lik, f_dc = feval(recs[:,it+1])
-               print('f_dc (1e6): ' + str(f_dc/1e6) + '  perc: ' + str(100*f_dc/np.linalg.norm(data)**2))
          
      return recs
 
