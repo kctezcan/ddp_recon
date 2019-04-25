@@ -105,13 +105,17 @@ usksp=usksp/np.percentile(  np.abs(tmp).flatten()   ,99)
 
 #=============================================================================
 onlydciter=10 # do 10 only SENSE iterations, then switch on the prior projections
-num_iter = 82 # total number of iterations
+
+dcprojiter=10
+num_iter = 102 # total number of iterations
+#notice you need to take num_iter some multiple of dcprojiter + 2, so that the data consistency
+#projection runs as the last step.
 
 regtype='reg2' # dummy choice here, switched off anyways
 reg=0 # do not use any phase projection, since the SENSE recon takes care of the phase sufficiently
 
 
-rec_ddp = vaerecon.vaerecon(usksp, sensmaps=sensmaps, dcprojiter=10, onlydciter=onlydciter, lat_dim=lat_dim, patchsize=ndims, parfact=20, num_iter=num_iter, regiter=15, reglmb=reg, regtype=regtype)
+rec_ddp = vaerecon.vaerecon(usksp, sensmaps=sensmaps, dcprojiter=dcprojiter, onlydciter=onlydciter, lat_dim=lat_dim, patchsize=ndims, parfact=20, num_iter=num_iter, regiter=15, reglmb=reg, regtype=regtype)
 pickle.dump(rec_ddp, open('./rec_ddp_espirit' ,'wb')   )
 
 # calculate RMSE
