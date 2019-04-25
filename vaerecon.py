@@ -20,7 +20,7 @@ import subprocess
 import sys
 
 
-def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsize=28, contRec='', parfact=10, num_iter=302, regiter=15, reglmb=0.05, regtype='TV'):
+def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsize=28, contRec='', lowresmodel=False, parfact=10, num_iter=302, regiter=15, reglmb=0.05, regtype='TV'):
      
 
      print('KCT-INFO: contRec is ' + contRec)
@@ -328,8 +328,9 @@ def vaerecon(us_ksp_r2, sensmaps, dcprojiter, onlydciter=0, lat_dim=60, patchsiz
                 ftot, f_prior, f_dc = feval(recs[:,it])
                 gtot, g_prior, g_dc = geval(recs[:,it])
                
-                print("it no: " + str(it) + " f_tot= " + str(ftot) + " f_prior= " + str(-f_prior) + " f_dc (x1e6)= " + str(f_dc/1e6) + " |g_prior|= " + str(np.linalg.norm(g_prior)) + " |g_dc|= " + str(np.linalg.norm(g_dc)) )
-               
+#                print("it no: " + str(it) + " f_tot= " + str(ftot) + " f_prior= " + str(-f_prior) + " f_dc (x1e6)= " + str(f_dc/1e6) + " |g_prior|= " + str(np.linalg.norm(g_prior)) + " |g_dc|= " + str(np.linalg.norm(g_dc)) )
+                print("it no: {0}, f_tot= {1:.2f}, f_prior= {2:.2f}, f_dc (x1e6)= {3:.2f}, |g_prior|= {4:.2f}, |g_dc|= {5:.2f}".format(it,      ftot,          -f_prior,          f_dc/1e6,     np.linalg.norm(g_prior),   np.linalg.norm(g_dc)      )  )
+                          
                 # update the image with the prior gradient
                 recs[:,it+1] = recs[:,it] - alpha*g_prior
                 

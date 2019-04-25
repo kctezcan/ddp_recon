@@ -192,10 +192,11 @@ def definevae(lat_dim=60, patchsize=28,batchsize=50):
      
      # do post-training predictions
      #==============================================================================
-     #==============================================================================
-     print("KCT-info: restoring the l2 model, high resolution")
+     #==============================================================================  
+      	
+     print("KCT-info: restoring the model, high resolution")
      saver.restore(sess, './trained_model/cvae_MSJhalf_'+mode+'_fcl'+str(fcl_dim)+'_lat'+str(lat_dim)+'_ns'+str(noisy)+'_ps'+str(patchsize))
-
+     
      
      #Here I make a new variable called x_rec to replace the existing x_inp.
      #Then I recreate the graph with x_rec as the input so that I can later
