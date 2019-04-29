@@ -17,7 +17,7 @@ Files:
 
 4. definevae.py: This function contains the VAE architecture, so runs it once to generate the graph, then loads the stored values into the variables, then rewires the graph again using the stored values, but this time with a variable (x_rec) for the input image instead of a placeholder (x_inp). This is because of some issues with an earlier version of the TF while calculating derivatives w.r.t. placeholders. Finally, this implements the necessary operations and their gradients to return to the recon function.
 
-5. Patcher: A class to handle the patching operations. I did not want to write the patching functions in the recon function to avoid unnecessarily cumbersome code, made a class instead. You can make an instance of this at the very beginning, providing your image size and desired settings (patch size, overlap etc...) and use its two functions to convert an image to a set of patches and vice versa. Not very thoroughly tested. 
+5. Patcher: A class to handle the patching operations. To avoid writing the patching functions in the recon functionun, leading to unnecessarily cumbersome code, we made a class instead. You can make an instance of this at the very beginning, providing your image size and desired settings (patch size, overlap etc...) and use its two functions to convert an image to a set of patches and vice versa. Not very thoroughly tested. 
 
 6. US_pattern.py: A class to generate US patterns. Not thoroughly tested, but should be fine if you use it as given in the main file.
 
@@ -25,7 +25,7 @@ Files:
 
 8. sample_data_and_uspat: We share a sample image from the HCP dataset* (single coil, no phase) and an image from a volunteer acquired for this study (16 coils, complex image) along with the corresponding ESPIRiT coil maps. We provide the images saved as two separate files, for the complex and imaginary parts due to complications with saving complex numbers. We also provide sample undersampling patterns for both images for R=2.
 
-Note: The dependencies are given in the requirements.txt. You can use "$ conda create --name <env> --file <this file>" to create an environmet with the given dependencies.
+Note: The dependencies are given in the requirements.txt. You can use "$ conda create --name <env> --file <this file>" to create an environment with the given dependencies.
 
 
 
