@@ -126,7 +126,7 @@ orim = tFT(ksp) # the fully sampled image
 
 rmses=np.zeros(num_iter-1)
 for ix in range(num_iter-1):
-    rec = np.reshape(rec_ddp[:,ix],[orim.shape[0], orim.shape[1]])
+    rec = np.abs(rec_ddp[:,:,ix])
     rmses[ix] = calc_rmse(orim, rec/np.linalg.norm(rec)*np.linalg.norm(orim))
 
 #print or plot the rmses values per iteration
