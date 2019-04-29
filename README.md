@@ -1,8 +1,9 @@
 # Code for "MR image reconstruction using deep density priors", IEEE TMI, 2018
 ## K.Tezcan, C. Baumgartner, R. Luechinger, K. Pruessmann, E. Konukoglu
 ### tezcan@vision.ee.ethz.ch, CVL ETH Zürich
-#### https://ieeexplore.ieee.org/document/8579232
-#### for supplementary materials: https://ieeexplore.ieee.org/ielx7/42/4359023/8579232/multimedia.pdf?tp=&arnumber=8579232
+#### Link to paper: https://ieeexplore.ieee.org/document/8579232
+Supplementary materials:
+https://ieeexplore.ieee.org/ielx7/42/4359023/8579232/multimedia.pdf?tp=&arnumber=8579232
 
 Files:
 
