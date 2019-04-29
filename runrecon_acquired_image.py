@@ -118,6 +118,7 @@ reg=0 # do not use any phase projection, since the SENSE recon takes care of the
 
 
 rec_ddp = vaerecon.vaerecon(usksp, sensmaps=sensmaps, dcprojiter=dcprojiter, onlydciter=onlydciter, lat_dim=lat_dim, patchsize=ndims, parfact=20, num_iter=num_iter, regiter=15, reglmb=reg, regtype=regtype)
+rec_ddp = np.reshape(rec_ddp,[usksp.shape[0], usksp.shape[1], -1])
 pickle.dump(rec_ddp, open('./rec_ddp_espirit' ,'wb')   )
 
 # calculate RMSE

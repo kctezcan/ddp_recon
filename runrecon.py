@@ -113,13 +113,13 @@ parfact = 25 # a factor for parallel computing for speeding up computations,
 
 # run the recon!
 rec_ddp = vaerecon.vaerecon(usksp, sensmaps=sensmaps, dcprojiter=dcprojiter, lat_dim=lat_dim, patchsize=ndims ,parfact=parfact, num_iter=num_iter, regiter=regiter, reglmb=reg, regtype=regtype)
+rec_ddp = np.reshape(rec_ddp,[orim.shape[0], orim.shape[1], -1])
 pickle.dump(rec_ddp, open('./rec' ,'wb')   )
 pickle.dump(np.abs(tFT(usksp)), open('./zerofilled' ,'wb')   )
                
 
 # the reconstructed image is the image after the last data consistency projection
-rec = rec_ddp[:,-1] # i.e. the 301th image
-rec = np.reshape(rec,[orim.shape[0], orim.shape[1]])
+rec = rec_ddp[:,:,-1] # i.e. the 301th image
 
 rec_abs = np.abs(rec)
 rec_phase = np.angle(rec)
