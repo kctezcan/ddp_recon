@@ -5,6 +5,8 @@
 Supplementary materials:
 https://ieeexplore.ieee.org/ielx7/42/4359023/8579232/multimedia.pdf?tp=&arnumber=8579232
 
+Please do not hesitate to contact for questions or feedback.
+
 Files:
 
 1. runrecon.py: The file that prepares and runs the reconstruction for the sample image from the HCP dataset. This loads the image, creates the undersampled version and calls the reconstruction function: vaerecon.py. After the reconstruction the reconstructed and the zero-filled images are saved as pickle files: 'rec' and 'zerofilled'. 'rec' contains the images throughout the iterations, so can be used to calculate step-wise RMSE to verify convergence.
