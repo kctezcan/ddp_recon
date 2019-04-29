@@ -96,12 +96,17 @@ regtype='reg2' # which type of regularization/projection to use for the phase im
 reg=0.1 # strength of this phase regularization. 0 means no regularization is applied
 regiter = 10 # how many iterations for the phase regularization
 
-num_iter = 302 # how many total iterations to run the reconstruction. 
+num_pocs_iter = 30 # number of total POCS iterations
 dcprojiter=10 # there will be a data consistency projection every 'dcprojiter'steps
+
+num_iter = num_pocs_iter*dcprojiter+2 # how many total iterations to run the reconstruction. 
+
 # note: this setting corresponds to 302/10 = 30 POCS iterations,
 #since you do a data consistency projection every ten steps.
 #the extra 2 are necessary to make sure the for loop runs until the last data
 #consistency projection.
+#notice you need to take num_iter some multiple of dcprojiter + 2, so that the data consistency
+#projection runs as the last step.
 
 parfact = 25 # a factor for parallel computing for speeding up computations,
 #i.e. doing operations in parallel for the patches, but upper bounded by memory 

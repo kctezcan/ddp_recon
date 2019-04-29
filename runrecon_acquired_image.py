@@ -106,8 +106,10 @@ usksp=usksp/np.percentile(  np.abs(tmp).flatten()   ,99)
 #=============================================================================
 onlydciter=10 # do 10 only SENSE iterations, then switch on the prior projections
 
-dcprojiter=10
-num_iter = 102 # total number of iterations
+num_pocs_iter = 10 # number of total POCS iterations
+dcprojiter=10 # there will be a data consistency projection every 'dcprojiter'steps
+
+num_iter = num_pocs_iter*dcprojiter+2 # how many total iterations to run the reconstruction. 
 #notice you need to take num_iter some multiple of dcprojiter + 2, so that the data consistency
 #projection runs as the last step.
 
