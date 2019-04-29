@@ -1,7 +1,8 @@
 # Code for "MR image reconstruction using deep density priors", IEEE TMI, 2018
 ## K.Tezcan, C. Baumgartner, R. Luechinger, K. Pruessmann, E. Konukoglu
 ### tezcan@vision.ee.ethz.ch, CVL ETH Zürich
-
+#### https://ieeexplore.ieee.org/document/8579232
+#### for supplementary materials: https://ieeexplore.ieee.org/ielx7/42/4359023/8579232/multimedia.pdf?tp=&arnumber=8579232
 
 Files:
 
@@ -19,8 +20,10 @@ Files:
 
 7. trained_model: The shared model is trained on 790 central T1 weighted slices with 1 mm in-slice resolution (158 subjects) from the HCP dataset.
 
-8. sample_data_and_uspat: We share a sample image from the HCP dataset (single coil, no phase) and an image from a volunteer acquired for this study (16 coils, complex image) along with the corresponding ESPIRiT coil maps. We provide the images saved as two separate files, for the complex and imaginary parts due to complications with saving complex numbers. We also provide sample undersampling patterns for both images for R=2.
+8. sample_data_and_uspat: We share a sample image from the HCP dataset* (single coil, no phase) and an image from a volunteer acquired for this study (16 coils, complex image) along with the corresponding ESPIRiT coil maps. We provide the images saved as two separate files, for the complex and imaginary parts due to complications with saving complex numbers. We also provide sample undersampling patterns for both images for R=2.
 
 Note: The dependencies are given in the requirements.txt. You can use "$ conda create --name <env> --file <this file>" to create an environmet with the given dependencies.
 
 
+
+* This image was provided by the Human Connectome Project, WU-Minn Consortium (Principal Investigators: David Van Essen and Kamil Ugurbil; 1U54MH091657) funded by the 16 NIH Institutes and Centers that support the NIH Blueprint for Neuroscience Research; and by the McDonnell Center for Systems Neuroscience at Washington University.
